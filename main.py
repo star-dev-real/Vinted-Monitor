@@ -126,8 +126,8 @@ async def send_response(
 
     try:
         send_email(
-            sender_email="starfnofficial@gmail.com",
-            sender_password="ehjd myrv torp aodg",  
+            sender_email="",
+            sender_password="",  
             recipient_email=email,
             subject="Thank you for contacting us!",
             body=message
