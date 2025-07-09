@@ -60,7 +60,7 @@ async def generate_keys(ctx: commands.Context, amount: int):
         payload = {"amount": amount}
 
         async with aiohttp.ClientSession() as session:
-            async with session.post("https://stardevreal.pythonanywhere.com/generate/secret/keys/api/v1", json=payload, headers=headers) as response:
+            async with session.post("", json=payload, headers=headers) as response:
                 if response.status == 200:
                     data = await response.json()
                     keys = data["generated_keys"]
@@ -83,7 +83,7 @@ async def getkey(
         return await ctx.interaction.response.send_message("❌ Only owners can use this command.", ephemeral=True)
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get("https://stardevreal.pythonanywhere.com/get/key/api/v1") as response:
+            async with session.get("") as response:
                 if response.status == 200:
                     data = response.json()
                     await ctx.send(f"✅ Successfully got key!\nKey: ```{data.get("key", "Error")}")
@@ -169,7 +169,7 @@ async def editnews(
     if contact_link:
         payload["contact_link"] = contact_link
 
-    url = "http://stardevreal.pythonanywhere.com/api/change/news/content/secret/api" 
+    url = "i" 
     try:
         async with aiohttp.ClientSession() as session:
             async with session.post(url, json=payload) as resp:
